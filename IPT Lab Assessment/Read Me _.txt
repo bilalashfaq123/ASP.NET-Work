@@ -1,0 +1,12 @@
+Question 1
+	Giving an empty or string raise an error
+	giving proper numerics performs action
+	entering a number that is too large also raises an exception, not make application crash
+Question 2
+	Sequential method for finding integer takes less time if the array size is small
+	Threads perform better in case of large size arrays
+	Array size and number to search can be change from UI
+	all types of exception are handled so that application may not crash at any time
+Question 3
+	File Upload is restricted to upload only dll Files
+	after file upload, it shows all the methods or Constructor in UI that are available in the dll

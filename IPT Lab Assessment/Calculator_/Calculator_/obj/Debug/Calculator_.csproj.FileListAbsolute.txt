@@ -1,0 +1,10 @@
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Calculator_\Calculator_\bin\Debug\Calculator_.exe.config
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Calculator_\Calculator_\bin\Debug\Calculator_.exe
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Calculator_\Calculator_\bin\Debug\Calculator_.pdb
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Calculator_\Calculator_\obj\Debug\Calculator_.csprojAssemblyReference.cache
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Calculator_\Calculator_\obj\Debug\Calculator_.Form1.resources
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Calculator_\Calculator_\obj\Debug\Calculator_.Properties.Resources.resources
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Calculator_\Calculator_\obj\Debug\Calculator_.csproj.GenerateResource.cache
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Calculator_\Calculator_\obj\Debug\Calculator_.csproj.CoreCompileInputs.cache
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Calculator_\Calculator_\obj\Debug\Calculator_.exe
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\Calculator_\Calculator_\obj\Debug\Calculator_.pdb

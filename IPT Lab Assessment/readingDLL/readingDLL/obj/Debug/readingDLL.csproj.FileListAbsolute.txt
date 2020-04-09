@@ -1,0 +1,10 @@
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\readingDLL\readingDLL\bin\Debug\readingDLL.exe.config
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\readingDLL\readingDLL\bin\Debug\readingDLL.exe
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\readingDLL\readingDLL\bin\Debug\readingDLL.pdb
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\readingDLL\readingDLL\obj\Debug\readingDLL.csprojAssemblyReference.cache
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\readingDLL\readingDLL\obj\Debug\readingDLL.form1.resources
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\readingDLL\readingDLL\obj\Debug\readingDLL.Properties.Resources.resources
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\readingDLL\readingDLL\obj\Debug\readingDLL.csproj.GenerateResource.cache
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\readingDLL\readingDLL\obj\Debug\readingDLL.csproj.CoreCompileInputs.cache
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\readingDLL\readingDLL\obj\Debug\readingDLL.exe
+C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\readingDLL\readingDLL\obj\Debug\readingDLL.pdb
