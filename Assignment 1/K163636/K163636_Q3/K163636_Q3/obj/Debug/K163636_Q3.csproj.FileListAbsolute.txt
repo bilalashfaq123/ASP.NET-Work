@@ -1,0 +1,5 @@
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q3\K163636_Q3\bin\Debug\K163636_Q3.exe.config
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q3\K163636_Q3\bin\Debug\K163636_Q3.exe
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q3\K163636_Q3\bin\Debug\K163636_Q3.pdb
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q3\K163636_Q3\obj\Debug\K163636_Q3.exe
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q3\K163636_Q3\obj\Debug\K163636_Q3.pdb

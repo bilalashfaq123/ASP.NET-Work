@@ -1,0 +1,6 @@
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q1\K163636_Q1\obj\Debug\K163636_Q1.csprojResolveAssemblyReference.cache
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q1\K163636_Q1\bin\Debug\K163636_Q1.exe.config
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q1\K163636_Q1\bin\Debug\K163636_Q1.exe
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q1\K163636_Q1\bin\Debug\K163636_Q1.pdb
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q1\K163636_Q1\obj\Debug\K163636_Q1.exe
+c:\users\home\documents\visual studio 2017\Projects\K163636_Q1\K163636_Q1\obj\Debug\K163636_Q1.pdb
