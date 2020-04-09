@@ -7,6 +7,7 @@ Question 2
 	Threads perform better in case of large size arrays
 	Array size and number to search can be change from UI
 	all types of exception are handled so that application may not crash at any time
+	"async" is used to make thread synchronous function
 Question 3
 	File Upload is restricted to upload only dll Files
 	after file upload, it shows all the methods or Constructor in UI that are available in the dll
