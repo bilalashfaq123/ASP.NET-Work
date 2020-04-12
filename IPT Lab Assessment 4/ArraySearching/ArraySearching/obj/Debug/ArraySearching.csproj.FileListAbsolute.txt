@@ -8,3 +8,13 @@ C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\ArraySear
 C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\ArraySearching\ArraySearching\obj\Debug\ArraySearching.csproj.CoreCompileInputs.cache
 C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\ArraySearching\ArraySearching\obj\Debug\ArraySearching.exe
 C:\Users\Bilal\Documents\Visual Studio 2017\Projects\IPT Lab Assesment\ArraySearching\ArraySearching\obj\Debug\ArraySearching.pdb
+C:\Users\Bilal\Documents\GitHub\ASP.NET Work\IPT Lab Assessment 4\ArraySearching\ArraySearching\bin\Debug\ArraySearching.exe.config
+C:\Users\Bilal\Documents\GitHub\ASP.NET Work\IPT Lab Assessment 4\ArraySearching\ArraySearching\bin\Debug\ArraySearching.exe
+C:\Users\Bilal\Documents\GitHub\ASP.NET Work\IPT Lab Assessment 4\ArraySearching\ArraySearching\bin\Debug\ArraySearching.pdb
+C:\Users\Bilal\Documents\GitHub\ASP.NET Work\IPT Lab Assessment 4\ArraySearching\ArraySearching\obj\Debug\ArraySearching.csprojAssemblyReference.cache
+C:\Users\Bilal\Documents\GitHub\ASP.NET Work\IPT Lab Assessment 4\ArraySearching\ArraySearching\obj\Debug\ArraySearching.Form1.resources
+C:\Users\Bilal\Documents\GitHub\ASP.NET Work\IPT Lab Assessment 4\ArraySearching\ArraySearching\obj\Debug\ArraySearching.Properties.Resources.resources
+C:\Users\Bilal\Documents\GitHub\ASP.NET Work\IPT Lab Assessment 4\ArraySearching\ArraySearching\obj\Debug\ArraySearching.csproj.GenerateResource.cache
+C:\Users\Bilal\Documents\GitHub\ASP.NET Work\IPT Lab Assessment 4\ArraySearching\ArraySearching\obj\Debug\ArraySearching.csproj.CoreCompileInputs.cache
+C:\Users\Bilal\Documents\GitHub\ASP.NET Work\IPT Lab Assessment 4\ArraySearching\ArraySearching\obj\Debug\ArraySearching.exe
+C:\Users\Bilal\Documents\GitHub\ASP.NET Work\IPT Lab Assessment 4\ArraySearching\ArraySearching\obj\Debug\ArraySearching.pdb
