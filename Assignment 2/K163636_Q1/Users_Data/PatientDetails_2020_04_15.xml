@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patients>
+  <Patient name="David" age="10" gender="male" email="bilal75210">
+    <bpm>10</bpm>
+    <time>113210</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="David" age="10" gender="male" email="bilal75210">
+    <bpm>10</bpm>
+    <time>113210</time>
+    <Confidence>0</Confidence>
+  </Patient>
+</Patients>
