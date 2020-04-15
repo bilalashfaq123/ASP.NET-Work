@@ -21,7 +21,7 @@ namespace K163636_Q1
 
         //1 for male, 0 for female
         [XmlAttribute]
-        public bool Gender { get; set; }
+        public string Gender { get; set; }
 
         [XmlElement]
         public int heartRate{ get; set; }
@@ -30,7 +30,7 @@ namespace K163636_Q1
         [XmlElement]
         public long time{ get; set; }
 
-        public Patient(string patientName, DateTime dateofBirth, bool gender, int heartRate,String email)
+        public Patient(string patientName, DateTime dateofBirth, string gender, int heartRate,String email)
         {
             PatientName = patientName;
             this.Age = 123;//Convert.ToInt32(DateTime.Now - dateofBirth);
