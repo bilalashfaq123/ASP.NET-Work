@@ -4,31 +4,46 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace K163636_Q1
 {
     [Serializable]
-    class Person
+    [XmlRoot]
+    public class Patient
     {
+        [XmlAttribute]
         public String PatientName{ get; set; }
-        public DateTime DateofBirth { get; set; }
+        [XmlAttribute]
+        public int Age{ get; set; }
+        [XmlAttribute]
+        public String Email { get; set; }
 
         //1 for male, 0 for female
+        [XmlAttribute]
         public bool Gender { get; set; }
-        public int hearRate{ get; set; }
+
+        [XmlElement]
+        public int heartRate{ get; set; }
+        [XmlElement]
         public int Confidence { get; set; }
+        [XmlElement]
         public long time{ get; set; }
 
-        public Person(string patientName, DateTime dateofBirth, bool gender, int hearRate)
+        public Patient(string patientName, DateTime dateofBirth, bool gender, int heartRate,String email)
         {
             PatientName = patientName;
-            DateofBirth = dateofBirth;
+            this.Age = 123;//Convert.ToInt32(DateTime.Now - dateofBirth);
             Gender = gender;
-            this.hearRate = hearRate;
-
+            this.heartRate = heartRate;
+            this.Email = email;
             //til uploading through this UI
             Confidence = 0;
             time = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+        }
+
+        public Patient()
+        {
         }
     }
 }
