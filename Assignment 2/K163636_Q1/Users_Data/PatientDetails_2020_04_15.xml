@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Patients>
   <Patient name="David" age="10" gender="male" email="bilal75210">
     <bpm>10</bpm>
@@ -13,6 +13,11 @@
   <Patient name="sadasasda" age="123" gender="male" email="bilal75210@gmail.com">
     <bpm>10</bpm>
     <time>1586939541</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="sdfsdf" age="123" gender="male" email="asdsad@gmail.com">
+    <bpm>12</bpm>
+    <time>1586944995</time>
     <Confidence>0</Confidence>
   </Patient>
 </Patients>
