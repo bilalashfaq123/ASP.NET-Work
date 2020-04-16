@@ -5,6 +5,7 @@ using System.IO;
 using System.ServiceProcess;
 using System.Timers;
 using System.Xml;
+using K163636_Q2;
 
 namespace K163636_Q2
 {
@@ -45,19 +46,21 @@ namespace K163636_Q2
                 XmlDocument xmlDocument = new XmlDocument();
                 xmlDocument.Load(_path);
                 string tempPath = "C:\\Users\\Bilal\\Desktop\\123.txt";
-                List<Patient> patients = new List<Patient>();
+                List<UserPatient> patients = new List<UserPatient>();
 
                 foreach (XmlNode node in xmlDocument.DocumentElement)
                 {
-                    string name = node.Attributes[0].InnerText;
+                    /*string name = node.Attributes[0].InnerText;
                     string age = node.Attributes[1].InnerText;
                     string gender = node.Attributes[2].InnerText;
-                    string email = node.Attributes[3].InnerText;
-                    Patient patient = new Patient();
-                    patient.PatientName = name.ToString();
+                    string email = node.Attributes[3].InnerText;*/
+                    UserPatient patient = new UserPatient(node.Attributes[0].InnerText,Convert.ToDateTime(node.Attributes[1].InnerText), node.Attributes[3].InnerText,node.Attributes[2].InnerText);
+                    
+                    
+                    /*patient.PatientName = name.ToString();
                     patient.Age = Convert.ToInt32(age);
                     patient.Gender = gender;
-                    patient.Email = email;
+                    patient.Email = email;*/
 
 
                     using (StreamWriter writer = new StreamWriter(tempPath))
@@ -125,19 +128,21 @@ namespace K163636_Q2
 
         //main work of service
         //till now, only xml is read and data is stored in list
-        private void DataDistribution(List<Patient> patients)
+        private void DataDistribution(List<UserPatient> patients)
         {
             string pathToSaveData = ConfigurationSettings.AppSettings["PathToSaveData"].ToString();
             foreach (var patient in patients)
             {
-                string _path = pathToSaveData + "\\"+ patient.PatientName;
+                string _path = pathToSaveData + "\\"+ patient.getName();
                 System.IO.Directory.CreateDirectory(_path);
                 string _userProfile = _path + "\\" + "User-Profile";
                 string _userDetail = _path + "\\" + "User-Detail";
                 System.IO.Directory.CreateDirectory(_userProfile);
                 System.IO.Directory.CreateDirectory(_userDetail);
 
-                var json = Newtonsoft.Json.JsonConvert.SerializeObject(patient);
+                Person person = (Person) patient;
+                //must include newton json converter while installing windows service
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(person);
                 FileCreationifNotExists(_userProfile+ "\\User-Profile.json");
                 using (StreamWriter writer = new StreamWriter(_userProfile + "\\User-Profile.json"))
                 {
