@@ -20,4 +20,29 @@
     <time>1587050418</time>
     <Confidence>0</Confidence>
   </Patient>
+  <Patient name="Bilal AShfaq" age="123" gender="male" email="k163636@google.com">
+    <bpm>128</bpm>
+    <time>1587055771</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="facebook" age="123" gender="male" email="facebook@google.com">
+    <bpm>120</bpm>
+    <time>1587056293</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="dani" age="123" gender="male" email="dani@gmail.com">
+    <bpm>99</bpm>
+    <time>1587059692</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="fahad" age="123" gender="female" email="fadi@google.com">
+    <bpm>555</bpm>
+    <time>1587060427</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="talal" age="123" gender="male" email="talal@gmail.com">
+    <bpm>33</bpm>
+    <time>1587061603</time>
+    <Confidence>0</Confidence>
+  </Patient>
 </Patients>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patients>
+  <Patient name="face" age="123" gender="male" email="google@google.com">
+    <bpm>11</bpm>
+    <time>1587071087</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="tttttttt" age="123" gender="female" email="ttttttt@google.com">
+    <bpm>11</bpm>
+    <time>1587071102</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="bilal" age="123" gender="male" email="bilal123@gmail.com">
+    <bpm>100</bpm>
+    <time>1587071121</time>
+    <Confidence>0</Confidence>
+  </Patient>
+</Patients>
