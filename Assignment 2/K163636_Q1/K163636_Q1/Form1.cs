@@ -80,7 +80,7 @@ namespace K163636_Q1
             XElement school = doc.Element("Patients");
             school.Add(new XElement("Patient",
                 new XAttribute("name", patient.PatientName),
-                new XAttribute("age", patient.Age),
+                new XAttribute("DateOfBirth", patient.DateofBirth),
                 new XAttribute("gender", patient.Gender),
                 new XAttribute("email", patient.Email),
                 new XElement("bpm", patient.heartRate),

@@ -65,10 +65,10 @@ namespace K163636_Q2
 
                     using (StreamWriter writer = new StreamWriter(tempPath))
                     {
-                        writer.WriteLine(name + "  \n");
+                        /*writer.WriteLine(name + "  \n");
                         writer.WriteLine(email + "  \n");
                         writer.WriteLine(gender + "  \n");
-                        writer.WriteLine(age + "  \n");
+                        writer.WriteLine(age + "  \n");*/
                         List<string> tempList = new List<string>();
                         foreach (XmlNode child in node.ChildNodes)
                         {
@@ -139,12 +139,20 @@ namespace K163636_Q2
                 string _userDetail = _path + "\\" + "User-Detail";
                 System.IO.Directory.CreateDirectory(_userProfile);
                 System.IO.Directory.CreateDirectory(_userDetail);
-
-                Person person = (Person) patient;
-                //must include newton json converter while installing windows service
+                
+                //writing into User Profiling
+                Person person = new Person(patient.getName(),patient.getDateofBirth(),patient.getEmail(),patient.getGender());
                 var json = Newtonsoft.Json.JsonConvert.SerializeObject(person);
                 FileCreationifNotExists(_userProfile+ "\\User-Profile.json");
                 using (StreamWriter writer = new StreamWriter(_userProfile + "\\User-Profile.json"))
+                {
+                    writer.WriteLine(json);
+                }
+
+                //writing into user Details
+                var jsonUser = Newtonsoft.Json.JsonConvert.SerializeObject(patient);
+                FileCreationifNotExists(_userProfile + "\\User-Profile.json");
+                using (StreamWriter writer = new StreamWriter(_userDetail + "\\heart_rate-" +DateTime.Now.ToString("YYYY-MM-DD")+".json"))
                 {
                     writer.WriteLine(json);
                 }

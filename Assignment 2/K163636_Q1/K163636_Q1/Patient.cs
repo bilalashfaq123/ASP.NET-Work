@@ -15,7 +15,7 @@ namespace K163636_Q1
         [XmlAttribute]
         public String PatientName{ get; set; }
         [XmlAttribute]
-        public int Age{ get; set; }
+        public DateTime DateofBirth{ get; set; }
         [XmlAttribute]
         public String Email { get; set; }
 
@@ -33,7 +33,7 @@ namespace K163636_Q1
         public Patient(string patientName, DateTime dateofBirth, string gender, int heartRate,String email)
         {
             PatientName = patientName;
-            this.Age = 123;//Convert.ToInt32(DateTime.Now - dateofBirth);
+            this.DateofBirth = dateofBirth;//Convert.ToInt32(DateTime.Now - dateofBirth);
             Gender = gender;
             this.heartRate = heartRate;
             this.Email = email;
