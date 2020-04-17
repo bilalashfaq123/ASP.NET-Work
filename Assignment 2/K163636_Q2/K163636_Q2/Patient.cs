@@ -3,47 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
+using Microsoft.SqlServer.Server;
+using Newtonsoft.Json;
 
 namespace K163636_Q2
 {
-
     [Serializable]
-    [XmlRoot]
-    public class Patient
+    internal class Patient
     {
-        [XmlAttribute]
-        public String PatientName { get; set; }
-        [XmlAttribute]
-        public int Age { get; set; }
-        [XmlAttribute]
+        public String Name { get; set; }
+
+        public DateTime DateofBirth { get; set; }
+
         public String Email { get; set; }
 
         //1 for male, 0 for female
-        [XmlAttribute]
         public string Gender { get; set; }
 
-        [XmlElement]
-        public int heartRate { get; set; }
-        [XmlElement]
-        public int Confidence { get; set; }
-        [XmlElement]
-        public long time { get; set; }
-
-        public Patient(string patientName, DateTime dateofBirth, string gender, int heartRate, String email)
+        [JsonIgnore]
+        public MedicalRecord MedicalRecord { get; set; }
+        public Patient(string Name, DateTime dateofBirth, string email, string gender)
         {
-            PatientName = patientName;
-            this.Age = 123;//Convert.ToInt32(DateTime.Now - dateofBirth);
+            this.Name = Name;
+            DateofBirth = dateofBirth;
+            Email = email;
             Gender = gender;
-            this.heartRate = heartRate;
-            this.Email = email;
-            //til uploading through this UI
-            Confidence = 0;
-            time = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
         }
 
-        public Patient()
+    }
+
+
+    [Serializable]
+    internal class MedicalRecord
+    {
+        public int heartRate { get; set; }
+        public int Confidence { get; set; }
+        public long time { get; set; }
+
+        public MedicalRecord(int heartRate, int confidence, long time)
         {
+            this.heartRate = heartRate;
+            Confidence = confidence;
+            this.time = time;
         }
     }
 }
