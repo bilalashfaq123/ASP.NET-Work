@@ -6,12 +6,14 @@ using System.ServiceProcess;
 using System.Timers;
 using System.Xml;
 using K163636_Q2;
+using Newtonsoft.Json;
 
 namespace K163636_Q2
 {
     public partial class Service1 : ServiceBase
     {
         System.Timers.Timer timer = new System.Timers.Timer();
+        private bool flag = false;
 
         private int _timerValue = Convert.ToInt32(ConfigurationSettings.AppSettings["_timerLimit"]);
 
@@ -39,7 +41,7 @@ namespace K163636_Q2
                 String _configPath = ConfigurationManager.AppSettings["Path"].ToString();
                 String datePick = DateTime.Now.Date.ToString("yyyy_MM_dd");
                 string _path = _configPath + datePick + ".xml";
-                
+
 
                 //trying to read XML
 
@@ -50,28 +52,39 @@ namespace K163636_Q2
 
                 foreach (XmlNode node in xmlDocument.DocumentElement)
                 {
-                    Patient patient = new Patient(node.Attributes[0].InnerText,Convert.ToDateTime(node.Attributes[1].InnerText), node.Attributes[3].InnerText,node.Attributes[2].InnerText);
+                    Patient patient = new Patient(node.Attributes[0].InnerText.ToString()
+                        , Convert.ToDateTime(node.Attributes[1].InnerText)
+                        , node.Attributes[3].InnerText.ToString()
+                        , node.Attributes[2].InnerText.ToString());
 
-                    using (StreamWriter writer = new StreamWriter(tempPath))
+                    using (StreamWriter writer = File.AppendText(tempPath))
                     {
+                        writer.WriteLine(patient.Name + "  \n");
+                        writer.WriteLine(patient.Email + "  \n");
+                        writer.WriteLine(patient.Gender+ "  \n");
+                        writer.WriteLine(patient.DateofBirth+ "  \n");
                         List<string> tempList = new List<string>();
                         foreach (XmlNode child in node.ChildNodes)
                         {
                             writer.WriteLine(child.InnerText + "  \n");
                             tempList.Add(child.InnerText);
                         }
-                        MedicalRecord medicalRecord = new MedicalRecord(heartRate: Convert.ToInt32(tempList[0]),confidence: Convert.ToInt32(tempList[2]),time: Convert.ToInt64(tempList[1]));
+
+                        MedicalRecord medicalRecord = new MedicalRecord(heartRate: Convert.ToInt32(tempList[0]),
+                            confidence: Convert.ToInt32(tempList[2]), time: Convert.ToInt64(tempList[1]));
                         patient.MedicalRecord = medicalRecord;
-                        writer.Write(DateTime.Now.ToString("T"));
+                        writer.Write(DateTime.Now.ToString("T")+"\n");
                     }
+
                     patients.Add(patient);
-                    DataDistribution(patients);
+                    
                 }
+                DataDistribution(patients);
             }
             catch (Exception exception)
             {
                 string tempPath = "C:\\Users\\Bilal\\Desktop\\123.txt";
-                using (StreamWriter writer = new StreamWriter(tempPath))
+                using (StreamWriter writer = File.AppendText(tempPath))
                 {
                     writer.WriteLine("Inside Method " + exception.Message.ToString() + "  \n");
                 }
@@ -108,7 +121,6 @@ namespace K163636_Q2
         }
 
 
-
         //main work of service
         //till now, only xml is read and data is stored in list
         private void DataDistribution(List<Patient> patients)
@@ -116,29 +128,53 @@ namespace K163636_Q2
             string pathToSaveData = ConfigurationSettings.AppSettings["PathToSaveData"].ToString();
             foreach (var patient in patients)
             {
-                string _path = pathToSaveData + "\\"+ patient.Name;
+                flag = false;
+                string _path = pathToSaveData + "\\" + patient.Name.ToString();
                 System.IO.Directory.CreateDirectory(_path);
                 string _userProfile = _path + "\\" + "User-Profile";
                 string _userDetail = _path + "\\" + "User-Detail";
                 System.IO.Directory.CreateDirectory(_userProfile);
                 System.IO.Directory.CreateDirectory(_userDetail);
-                
+
                 //writing into User Profiling
                 //Person person = new Person(patient.getName(),patient.getDateofBirth(),patient.getEmail(),patient.getGender());
                 var json = Newtonsoft.Json.JsonConvert.SerializeObject(patient);
-                FileCreationifNotExists(_userProfile+ "\\User-Profile.json");
+                FileCreationifNotExists(_userProfile + "\\User-Profile.json");
                 using (StreamWriter writer = new StreamWriter(_userProfile + "\\User-Profile.json"))
                 {
                     writer.WriteLine(json);
                 }
 
                 //writing into user Details
+                // medical record
+
                 MedicalRecord tempRecord = patient.MedicalRecord;
-                var jsonUser = Newtonsoft.Json.JsonConvert.SerializeObject(tempRecord);
-              //  FileCreationifNotExists(_userProfile + "\\User-Profile.json");
-                using (StreamWriter writer = new StreamWriter(_userDetail + "\\heart_rate-" +DateTime.Now.ToString("YYYY-MM-DD")+".json"))
+                /*if (File.Exists(_userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json"))
                 {
-                    writer.WriteLine(jsonUser);
+                    using (StreamReader reader =
+                        new StreamReader(_userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json"))
+                    {
+                        string jsonReadLine;
+                        while ((jsonReadLine = reader.ReadLine()) != null)
+                        {
+                            MedicalRecord _tempRecord = JsonConvert.DeserializeObject<MedicalRecord>(jsonReadLine);
+                            if (_tempRecord.time == (tempRecord.time))
+                            {
+                                flag = true;
+                            }
+                        }
+                    }
+                }*/
+
+                // if not exits record, only then insert data
+                if (!flag)
+                {
+                    var jsonUser = Newtonsoft.Json.JsonConvert.SerializeObject(tempRecord);
+                    using (StreamWriter writer =
+                        File.AppendText(_userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json"))
+                    {
+                        writer.WriteLine(jsonUser + "\n");
+                    }
                 }
             }
         }
