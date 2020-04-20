@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patients>
+  <Patient name="bilal" DateOfBirth="2000-01-03T00:00:00" gender="male" email="bilal75210@gmail.com">
+    <bpm>111</bpm>
+    <time>1587392717</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="google" DateOfBirth="2000-01-03T00:00:00" gender="male" email="google@google.com">
+    <bpm>222</bpm>
+    <time>1587392729</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="bilal" DateOfBirth="2000-01-03T00:00:00" gender="male" email="bilal75210@gmail.com">
+    <bpm>333</bpm>
+    <time>1587392745</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="bilal" DateOfBirth="2000-01-03T00:00:00" gender="male" email="bilal75210@gmail.com">
+    <bpm>444</bpm>
+    <time>1587392750</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="bilal" DateOfBirth="2000-01-03T00:00:00" gender="male" email="bilal75210@gmail.com">
+    <bpm>555</bpm>
+    <time>1587392755</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="bilal" DateOfBirth="2000-01-01T00:00:00" gender="male" email="bilal75210@gmail.com">
+    <bpm>10000000</bpm>
+    <time>1587393908</time>
+    <Confidence>0</Confidence>
+  </Patient>
+</Patients>

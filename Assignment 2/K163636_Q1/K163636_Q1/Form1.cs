@@ -92,7 +92,7 @@ namespace K163636_Q1
 
         public bool formValidation()
         {
-            string emailPattern = @"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"; // Email address pattern
+            string emailPattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$"; // Email address pattern
             string Name = "^[a - z,.'-]+$";
             string heartrate = "^[0-9]*$";
 

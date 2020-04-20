@@ -61,8 +61,8 @@ namespace K163636_Q2
                     {
                         writer.WriteLine(patient.Name + "  \n");
                         writer.WriteLine(patient.Email + "  \n");
-                        writer.WriteLine(patient.Gender+ "  \n");
-                        writer.WriteLine(patient.DateofBirth+ "  \n");
+                        writer.WriteLine(patient.Gender + "  \n");
+                        writer.WriteLine(patient.DateofBirth + "  \n");
                         List<string> tempList = new List<string>();
                         foreach (XmlNode child in node.ChildNodes)
                         {
@@ -73,12 +73,12 @@ namespace K163636_Q2
                         MedicalRecord medicalRecord = new MedicalRecord(heartRate: Convert.ToInt32(tempList[0]),
                             confidence: Convert.ToInt32(tempList[2]), time: Convert.ToInt64(tempList[1]));
                         patient.MedicalRecord = medicalRecord;
-                        writer.Write(DateTime.Now.ToString("T")+"\n");
+                        writer.Write(DateTime.Now.ToString("T") + "\n");
                     }
 
                     patients.Add(patient);
-                    
                 }
+
                 DataDistribution(patients);
             }
             catch (Exception exception)
@@ -149,7 +149,7 @@ namespace K163636_Q2
                 // medical record
 
                 MedicalRecord tempRecord = patient.MedicalRecord;
-                /*if (File.Exists(_userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json"))
+                if (File.Exists(_userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json"))
                 {
                     using (StreamReader reader =
                         new StreamReader(_userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json"))
@@ -157,14 +157,15 @@ namespace K163636_Q2
                         string jsonReadLine;
                         while ((jsonReadLine = reader.ReadLine()) != null)
                         {
-                            MedicalRecord _tempRecord = JsonConvert.DeserializeObject<MedicalRecord>(jsonReadLine);
+                            MedicalRecord _tempRecord =
+                                (MedicalRecord) JsonConvert.DeserializeObject<MedicalRecord>(jsonReadLine);
                             if (_tempRecord.time == (tempRecord.time))
                             {
                                 flag = true;
                             }
                         }
                     }
-                }*/
+                }
 
                 // if not exits record, only then insert data
                 if (!flag)
@@ -173,7 +174,7 @@ namespace K163636_Q2
                     using (StreamWriter writer =
                         File.AppendText(_userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json"))
                     {
-                        writer.WriteLine(jsonUser + "\n");
+                        writer.WriteLine(jsonUser);
                     }
                 }
             }
