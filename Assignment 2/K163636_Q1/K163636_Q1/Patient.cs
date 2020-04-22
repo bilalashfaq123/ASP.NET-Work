@@ -8,42 +8,54 @@ using System.Xml.Serialization;
 
 namespace K163636_Q1
 {
-    [Serializable]
-    [XmlRoot]
     public class Patient
     {
-        [XmlAttribute]
         public String PatientName{ get; set; }
-        [XmlAttribute]
+    
         public DateTime DateofBirth{ get; set; }
-        [XmlAttribute]
         public String Email { get; set; }
 
-        //1 for male, 0 for female
-        [XmlAttribute]
+       
         public string Gender { get; set; }
 
-        [XmlElement]
-        public int heartRate{ get; set; }
-        [XmlElement]
-        public int Confidence { get; set; }
-        [XmlElement]
-        public long time{ get; set; }
+        public MedicalRecord _MedicalRecord { get; set; }
+        
 
-        public Patient(string patientName, DateTime dateofBirth, string gender, int heartRate,String email)
+
+        public Patient(string patientName, DateTime dateofBirth, string gender,String email)
         {
             PatientName = patientName;
             this.DateofBirth = dateofBirth;//Convert.ToInt32(DateTime.Now - dateofBirth);
             Gender = gender;
-            this.heartRate = heartRate;
             this.Email = email;
             //til uploading through this UI
-            Confidence = 0;
-            time = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
         }
 
         public Patient()
         {
+            _MedicalRecord = new MedicalRecord();
+        }
+    }
+
+    public class MedicalRecord
+    {
+        public int heartRate { get; set; }
+
+        public int Confidence { get; set; }
+
+        public long time { get; set; }
+
+        public MedicalRecord(int heartRate)
+        {
+            this.heartRate = heartRate;
+            Confidence = 0;
+            this.time = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+        }
+
+        public MedicalRecord()
+        {
+            Confidence = 0;
+            this.time = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
         }
     }
 }

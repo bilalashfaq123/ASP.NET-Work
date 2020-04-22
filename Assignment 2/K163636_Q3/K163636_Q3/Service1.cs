@@ -29,5 +29,10 @@ namespace K163636_Q3
         protected override void OnStop()
         {
         }
+
+        private void timer1_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+
+        }
     }
 }

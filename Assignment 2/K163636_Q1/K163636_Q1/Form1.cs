@@ -44,9 +44,9 @@ namespace K163636_Q1
                 gender = "female";
             }
 
-            Patient patient = new Patient(pName.Text.ToString(), dateTimePicker1.Value, gender,
-                Convert.ToInt32(pHeartRate.Text),
-                emailBox.Text.ToLower().ToString());
+            Patient patient = new Patient(pName.Text.ToString(), dateTimePicker1.Value, gender, emailBox.Text.ToLower().ToString());
+            MedicalRecord _medicalRecord = new MedicalRecord(Convert.ToInt32(pHeartRate.Text));
+            patient._MedicalRecord = _medicalRecord;
             String datePick = DateTime.Now.Date.ToString("yyyy_MM_dd");
 
             String configPath = System.Configuration.ConfigurationManager.AppSettings["Path"].ToString();
@@ -56,8 +56,7 @@ namespace K163636_Q1
             FileCreationifNotExists(path);
             saveXML(path, patient);
 
-
-            MessageBox.Show("Done");
+            MessageBox.Show("Record Saved Successfully");
         }
 
 
@@ -83,8 +82,8 @@ namespace K163636_Q1
                 new XAttribute("DateOfBirth", patient.DateofBirth),
                 new XAttribute("gender", patient.Gender),
                 new XAttribute("email", patient.Email),
-                new XElement("bpm", patient.heartRate),
-                new XElement("time", patient.time),
+                new XElement("bpm", patient._MedicalRecord.heartRate),
+                new XElement("time", patient._MedicalRecord.time),
                 new XElement("Confidence", "0")
             ));
             doc.Save(path);
@@ -126,6 +125,16 @@ namespace K163636_Q1
             }
 
             return true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming in Future Versions. Stay Tuned!!");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming in Future Versions. Stay Tuned!!");
         }
     }
 }

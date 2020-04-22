@@ -34,6 +34,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Elapsed);
             // 
             // Service1
             // 
