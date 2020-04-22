@@ -37,8 +37,11 @@ namespace K163636_Q2
     internal class MedicalRecord
     {
         public int heartRate { get; set; }
+        
         public int Confidence { get; set; }
+        
         public long time { get; set; }
+
 
         public MedicalRecord(int heartRate, int confidence, long time)
         {

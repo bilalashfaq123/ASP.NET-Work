@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patients>
+  <Patient name="Ammar" DateOfBirth="2000-01-13T00:00:00" gender="male" email="ammarmahmood28@gmail.com">
+    <bpm>129</bpm>
+    <time>1587546095</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="Bilal" DateOfBirth="2000-01-13T00:00:00" gender="male" email="bilal75210@gmail.com">
+    <bpm>987</bpm>
+    <time>1587546115</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="Inam" DateOfBirth="2000-01-13T00:00:00" gender="male" email="inam@gmail.com">
+    <bpm>444</bpm>
+    <time>1587546132</time>
+    <Confidence>0</Confidence>
+  </Patient>
+</Patients>
