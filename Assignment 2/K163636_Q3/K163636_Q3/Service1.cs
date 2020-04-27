@@ -33,66 +33,62 @@ namespace K163636_Q3
 
         protected override void OnStart(string[] args)
         {
-            timer.Interval = _timerValue;
-            timer.AutoReset = true;
+            timer.Elapsed += new ElapsedEventHandler(timer1_Elapsed);
+            timer.Interval = 1000; // 1000 ms => 1 second
             timer.Enabled = true;
-            timer.Start();
-            timer.Elapsed += new System.Timers.ElapsedEventHandler(timer1_Elapsed);
         }
 
         protected override void OnStop()
         {
             timer.Enabled = false;
-            timer.Stop();
         }
-
+        private int lastminute = -1;
         private void timer1_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            var curTime = DateTime.Now; // Get current time
+            if (lastminute < curTime.Minute) // If now 5 min of any hour
+            {
+                lastminute = curTime.Minute + _timerValue;
+                WorkingInService();
+            }
+        }
+
+
+        public void WorkingInService()
+        {
             List<string> sList = GetDirectoryInformation();
-            
 
             foreach (var dir in sList)
             {
-                string _path = "G:\\Users\\"+dir + "\\User-Detail\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json";
+                string _path = "G:\\Users\\" + dir + "\\User-Detail\\heart_rate-" +
+                               DateTime.Now.ToString("YYYY-MM-DD") + ".json";
+                List<MedicalRecord> medicalRecords = null;
                 if (File.Exists(_path))
                 {
                     var json = File.ReadAllText(_path);
-                    var medicalRecords = JsonConvert.DeserializeObject<List<MedicalRecord>>(json);
-
-                    string savingPath = "G:\\Users\\" + dir + "\\User-Detail\\Complete_heart_rate.json";
-                    MedicalRecordAdd(medicalRecords,savingPath);
+                    medicalRecords = JsonConvert.DeserializeObject<List<MedicalRecord>>(json);
+                    Console.WriteLine(medicalRecords.Count + " Count");
                 }
+                string savingPath = "G:\\Users\\" + dir + "\\User-Detail\\Complete_heart_rate.json";
+                MedicalRecordAdd(medicalRecords, savingPath);
             }
         }
-
-
-
-
         void MedicalRecordAdd(List<MedicalRecord> medicalRecordsList, string pathToTheFile)
         {
-            if (File.Exists(pathToTheFile))
+            FileCreationifNotExists(pathToTheFile);
+            var json = File.ReadAllText(pathToTheFile);
+
+            var medicalRecords = JsonConvert.DeserializeObject<List<MedicalRecord>>(json);
+
+            List<MedicalRecord> newmedicalRecords =
+                medicalRecords != null ? medicalRecords.Distinct().ToList() : new List<MedicalRecord>();
+
+            foreach (var medicalRecord in medicalRecordsList)
             {
-                var json = File.ReadAllText(pathToTheFile);
-                var medicalRecords = JsonConvert.DeserializeObject<List<MedicalRecord>>(json);
-
-                
-                
-
-                List<MedicalRecord> NewmedicalRecords = medicalRecords.Distinct().ToList();
-                File.WriteAllText(pathToTheFile, JsonConvert.SerializeObject(NewmedicalRecords));
+                newmedicalRecords.Add(medicalRecord);
             }
-            else
-            {
-                FileCreationifNotExists(pathToTheFile);
-                List<MedicalRecord> medicalRecords = new List<MedicalRecord>();
 
-                foreach (var medicalRecord in medicalRecordsList)
-                {
-                    medicalRecords.Add(medicalRecord);
-                }
-
-                File.WriteAllText(pathToTheFile, JsonConvert.SerializeObject(medicalRecords));
-            }
+            File.WriteAllText(pathToTheFile, JsonConvert.SerializeObject(newmedicalRecords.Distinct().ToList()));
         }
 
         private void FileCreationifNotExists(string path)
@@ -114,6 +110,7 @@ namespace K163636_Q3
 
             return sList;
         }
+
 
 
         //wont need it, because better solution is to read all directory names
