@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Server;
@@ -34,20 +35,69 @@ namespace K163636_Q2
 
 
     [Serializable]
-    internal class MedicalRecord
+    internal class MedicalRecord:IEquatable<MedicalRecord>
     {
-        public int heartRate { get; set; }
         
+        public long DateTime { get; set; }
+
+        [JsonIgnore]
         public int Confidence { get; set; }
-        
-        public long time { get; set; }
+        [JsonIgnore]
+        public int HeartRate { get; set; }
 
 
-        public MedicalRecord(int heartRate, int confidence, long time)
+        [JsonProperty("value")]
+        private Dictionary<String, int> value { get; set; }
+        [OnSerializing]
+        internal void OnSerializing(StreamingContext context)
         {
-            this.heartRate = heartRate;
-            Confidence = confidence;
-            this.time = time;
+            value = new Dictionary<string, int>();
+            value.Add("Confidence", 0);
+            value.Add("bpm", HeartRate);
+
+        }
+
+        [OnDeserialized]
+        internal void OnDeserialized(StreamingContext context)
+        {
+            Confidence = value["Confidence"];
+            HeartRate = value["bpm"];
+        }
+
+
+
+        public long getDayTime()
+        {
+            return this.DateTime;
+        }
+
+
+        public MedicalRecord(int heartRate,int confidence, long time)
+        {
+            this.Confidence = confidence;
+            this.HeartRate = heartRate;
+            this.DateTime = time;
+        }
+
+
+        public bool Equals(MedicalRecord other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return DateTime == other.DateTime;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((MedicalRecord) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return DateTime.GetHashCode();
         }
     }
 }

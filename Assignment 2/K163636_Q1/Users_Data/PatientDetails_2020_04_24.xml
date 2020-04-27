@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patients>
+  <Patient name="google" DateOfBirth="2000-01-01T00:00:00" gender="male" email="google@google.com">
+    <bpm>12</bpm>
+    <time>1587728384</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="bilal" DateOfBirth="2000-01-01T00:00:00" gender="male" email="google@google.com">
+    <bpm>120</bpm>
+    <time>1587728392</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="ammar" DateOfBirth="2000-01-01T00:00:00" gender="male" email="google@google.com">
+    <bpm>90</bpm>
+    <time>1587728399</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="inam" DateOfBirth="2000-01-01T00:00:00" gender="male" email="google@google.com">
+    <bpm>90</bpm>
+    <time>1587728403</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="inam" DateOfBirth="2000-01-01T00:00:00" gender="male" email="google@google.com">
+    <bpm>90</bpm>
+    <time>1587728406</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="inam" DateOfBirth="2000-01-01T00:00:00" gender="male" email="google@google.com">
+    <bpm>90</bpm>
+    <time>1587728408</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="ammar" DateOfBirth="2000-01-01T00:00:00" gender="male" email="google@google.com">
+    <bpm>1000</bpm>
+    <time>1587728415</time>
+    <Confidence>0</Confidence>
+  </Patient>
+</Patients>

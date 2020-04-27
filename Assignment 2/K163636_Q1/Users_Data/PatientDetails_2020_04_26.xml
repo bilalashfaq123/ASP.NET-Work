@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patients>
+  <Patient name="fafjsdkfna" DateOfBirth="2000-01-03T00:00:00" gender="male" email="nskfjasdn@gmail.com">
+    <bpm>12</bpm>
+    <time>1587894500</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="Bilal" DateOfBirth="2000-01-03T00:00:00" gender="male" email="nskfjasdn@gmail.com">
+    <bpm>12</bpm>
+    <time>1587894509</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="Bilal" DateOfBirth="2000-01-03T00:00:00" gender="male" email="nskfjasdn@gmail.com">
+    <bpm>1200</bpm>
+    <time>1587894515</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="inam" DateOfBirth="2000-01-03T00:00:00" gender="male" email="nskfjasdn@gmail.com">
+    <bpm>1200</bpm>
+    <time>1587894520</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="inam" DateOfBirth="2000-01-03T00:00:00" gender="male" email="nskfjasdn@gmail.com">
+    <bpm>1200</bpm>
+    <time>1587894525</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="inam" DateOfBirth="2000-01-03T00:00:00" gender="male" email="nskfjasdn@gmail.com">
+    <bpm>499</bpm>
+    <time>1587894530</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="Amamr" DateOfBirth="2000-01-03T00:00:00" gender="male" email="nskfjasdn@gmail.com">
+    <bpm>499</bpm>
+    <time>1587894537</time>
+    <Confidence>0</Confidence>
+  </Patient>
+  <Patient name="Amamr" DateOfBirth="2000-01-03T00:00:00" gender="male" email="nskfjasdn@gmail.com">
+    <bpm>499</bpm>
+    <time>1587894539</time>
+    <Confidence>0</Confidence>
+  </Patient>
+</Patients>

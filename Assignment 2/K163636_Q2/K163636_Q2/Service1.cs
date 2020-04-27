@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.ServiceProcess;
 using System.Timers;
 using System.Xml;
 using K163636_Q2;
 using Newtonsoft.Json;
+using static System.Configuration.ConfigurationSettings;
 
 namespace K163636_Q2
 {
@@ -15,7 +17,7 @@ namespace K163636_Q2
         System.Timers.Timer timer = new System.Timers.Timer();
         private bool flag = false;
 
-        private int _timerValue = Convert.ToInt32(ConfigurationSettings.AppSettings["_timerLimit"]);
+        private int _timerValue = Convert.ToInt32(AppSettings["_timerLimit"]);
 
         public Service1()
         {
@@ -125,7 +127,7 @@ namespace K163636_Q2
         //till now, only xml is read and data is stored in list
         private void DataDistribution(List<Patient> patients)
         {
-            string pathToSaveData = ConfigurationSettings.AppSettings["PathToSaveData"].ToString();
+            string pathToSaveData = AppSettings["PathToSaveData"].ToString();
             foreach (var patient in patients)
             {
                 flag = false;
@@ -145,39 +147,35 @@ namespace K163636_Q2
                     writer.WriteLine(json);
                 }
 
-                //writing into user Details
-                // medical record
 
                 MedicalRecord tempRecord = patient.MedicalRecord;
-                if (File.Exists(_userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json"))
-                {
-                    using (StreamReader reader =
-                        new StreamReader(_userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json"))
-                    {
-                        string jsonReadLine;
-                        while ((jsonReadLine = reader.ReadLine()) != null)
-                        {
-                            MedicalRecord _tempRecord =
-                                (MedicalRecord) JsonConvert.DeserializeObject<MedicalRecord>(jsonReadLine);
-                            if (_tempRecord.time == (tempRecord.time))
-                            {
-                                flag = true;
-                            }
-                        }
-                    }
-                }
+                MedicalRecordAdd(tempRecord,
+                    _userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json");
+            }
 
-                // if not exits record, only then insert data
-                if (!flag)
+
+            void MedicalRecordAdd(MedicalRecord medicalRecord, string pathToTheFile)
+            {
+                if (File.Exists(pathToTheFile))
                 {
-                    var jsonUser = Newtonsoft.Json.JsonConvert.SerializeObject(tempRecord);
-                    using (StreamWriter writer =
-                        File.AppendText(_userDetail + "\\heart_rate-" + DateTime.Now.ToString("YYYY-MM-DD") + ".json"))
-                    {
-                        writer.WriteLine(jsonUser);
-                    }
+                    var json = File.ReadAllText(pathToTheFile);
+                    var medicalRecords = JsonConvert.DeserializeObject<List<MedicalRecord>>(json);
+                    medicalRecords.Add(medicalRecord);
+                    List<MedicalRecord> NewmedicalRecords = medicalRecords.Distinct().ToList();
+                    File.WriteAllText(pathToTheFile, JsonConvert.SerializeObject(NewmedicalRecords));
+                }
+                else
+                {
+                    FileCreationifNotExists(pathToTheFile);
+                    List<MedicalRecord> medicalRecords = new List<MedicalRecord>();
+                    medicalRecords.Add(medicalRecord);
+                    File.WriteAllText(pathToTheFile, JsonConvert.SerializeObject(medicalRecords));
                 }
             }
+
+
         }
+
+        
     }
 }
