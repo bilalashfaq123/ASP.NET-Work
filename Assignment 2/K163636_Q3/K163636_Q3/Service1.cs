@@ -101,7 +101,8 @@ namespace K163636_Q3
 
         public List<string> GetDirectoryInformation()
         {
-            var dirName = new DirectoryInfo(@"G:\Users\").GetDirectories();
+            string dirPath = ConfigurationSettings.AppSettings["Path"].ToString();
+            var dirName = new DirectoryInfo(dirPath).GetDirectories();
             List<string> sList = new List<string>();
             foreach (var dir in dirName)
             {

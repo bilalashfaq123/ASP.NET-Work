@@ -76,7 +76,7 @@
             this.pName.Location = new System.Drawing.Point(292, 20);
             this.pName.Name = "pName";
             this.pName.Size = new System.Drawing.Size(187, 20);
-            this.pName.TabIndex = 5;
+            this.pName.TabIndex = 0;
             // 
             // dateTimePicker1
             // 
@@ -85,7 +85,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(292, 87);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(187, 20);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.TabIndex = 3;
             this.dateTimePicker1.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // button1
@@ -93,7 +93,7 @@
             this.button1.Location = new System.Drawing.Point(72, 208);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -124,7 +124,7 @@
             this.radioButton1.Location = new System.Drawing.Point(292, 57);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(48, 17);
-            this.radioButton1.TabIndex = 13;
+            this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Male";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -135,7 +135,7 @@
             this.radioButton2.Location = new System.Drawing.Point(394, 57);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(59, 17);
-            this.radioButton2.TabIndex = 14;
+            this.radioButton2.TabIndex = 2;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Female";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -154,14 +154,14 @@
             this.pHeartRate.Location = new System.Drawing.Point(292, 121);
             this.pHeartRate.Name = "pHeartRate";
             this.pHeartRate.Size = new System.Drawing.Size(187, 20);
-            this.pHeartRate.TabIndex = 8;
+            this.pHeartRate.TabIndex = 4;
             // 
             // emailBox
             // 
             this.emailBox.Location = new System.Drawing.Point(292, 160);
             this.emailBox.Name = "emailBox";
             this.emailBox.Size = new System.Drawing.Size(187, 20);
-            this.emailBox.TabIndex = 16;
+            this.emailBox.TabIndex = 5;
             // 
             // label5
             // 
