@@ -68,8 +68,13 @@ namespace K163636_Q4a
                     medicalRecords = JsonConvert.DeserializeObject<List<MedicalRecord>>(json);
                     Console.WriteLine(medicalRecords.Count + " Count");
                 }
+                //we need to read a patient info as well
+                //
+                string pathForPatient = _TempPath + dir + "\\User-Profile\\User-Profile.json";
+                var json1 = File.ReadAllText(pathForPatient);
+                var patient = JsonConvert.DeserializeObject<Patient>(json1);
 
-                CreateUserChartXml(dir, medicalRecords);
+                CreateUserChartXml(dir, medicalRecords,patient);
             }
             CreateConsolidatedChart();
         }
@@ -103,7 +108,7 @@ namespace K163636_Q4a
             doc.Save(path);
         }
 
-        private void CreateUserChartXml(string dir, List<MedicalRecord> list)
+        private void CreateUserChartXml(string dir, List<MedicalRecord> list,Patient patient)
         {
             string _TempPath = ConfigurationSettings.AppSettings["Path"].ToString();
             int highestHeartRate = 0;
@@ -122,7 +127,7 @@ namespace K163636_Q4a
             int range = 0;
 
             string pathToSaveData = _TempPath +"UserChart.xml";
-            saveXML(pathToSaveData, dir, lowestHeartRate, highestHeartRate, averageHeartRate, range);
+            saveXML(pathToSaveData, patient.Name,patient.Email, lowestHeartRate, highestHeartRate, averageHeartRate, range);
         }
 
 
@@ -152,7 +157,7 @@ namespace K163636_Q4a
             }
         }
 
-        private void saveXML(String path, string name, int low, int high, int avg, int range)
+        private void saveXML(String path, string name,string email, int low, int high, int avg, int range)
         {
 
             FileCreationifNotExists(path);
@@ -160,6 +165,7 @@ namespace K163636_Q4a
             XElement school = doc.Element("Users");
             school.Add(new XElement("User",
                 new XAttribute("name", name),
+                new XAttribute("email", email),
                 new XElement("High", high),
                 new XElement("average", avg),
                 new XElement("low", low),
