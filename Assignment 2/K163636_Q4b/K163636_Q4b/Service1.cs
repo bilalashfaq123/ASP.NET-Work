@@ -47,11 +47,5 @@ namespace K163636_Q4b
                 //
             }
         }
-
-        public void ReadData()
-        {
-            string path = ConfigurationSettings.AppSettings["Path"].ToString();
-            string fileName = "UserChart.xml";
-        }
     }
 }
