@@ -20,6 +20,14 @@ namespace K163636_Q4b
         public Service1()
         {
             InitializeComponent();
+            CreateTempFile();
+        }
+
+        public void CreateTempFile()
+        {
+            string path_ = System.Environment.CurrentDirectory + "log.xml";
+            string Filepath_ = ConfigurationSettings.AppSettings["Path"];
+
         }
 
         public void OnDebug()
@@ -35,6 +43,7 @@ namespace K163636_Q4b
 
         protected override void OnStop()
         {
+            timer.Enabled = false;
         }
 
         private int lastminute = -1;
@@ -44,8 +53,24 @@ namespace K163636_Q4b
             if (lastminute < curTime.Minute) // If now 5 min of any hour
             {
                 lastminute = curTime.Minute + _timerValue;
-                //
+                // work to be done here 
+
+                
+                toDoWork();
+
             }
+        }
+
+        public void toDoWork()
+        {
+            string path_ = ConfigurationSettings.AppSettings["Path"];
+            var lastModified = System.IO.File.GetLastWriteTime(path_);
+            if (lastModified.Minute + 14 > DateTime.Now.Minute)
+            {
+                //means modified 
+
+            }
+
         }
     }
 }

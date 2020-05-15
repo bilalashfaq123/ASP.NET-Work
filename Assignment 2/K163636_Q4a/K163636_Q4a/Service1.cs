@@ -46,7 +46,7 @@ namespace K163636_Q4a
         private void timer1_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             var curTime = DateTime.Now; // Get current time
-            if (lastminute < curTime.Minute) // If now 5 min of any hour
+            if (lastminute < curTime.Minute) 
             {
                 lastminute = curTime.Minute + _timerValue;
                 WorkingInService();
