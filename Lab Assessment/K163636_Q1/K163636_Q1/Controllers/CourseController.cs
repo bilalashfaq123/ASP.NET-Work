@@ -41,7 +41,17 @@ namespace K163636_Q1.Controllers
             return Courses.Where(item => item.NumberOfStudentsEnrolled < students);
         }
 
-
+        public void RemoveCourse(int id)
+        {
+            try
+            {
+                Courses.Remove(Courses.Where(item => item.CourseCode == id).FirstOrDefault());
+            }
+            catch (Exception e)
+            {
+                
+            }
+        }
 
     }
 }
