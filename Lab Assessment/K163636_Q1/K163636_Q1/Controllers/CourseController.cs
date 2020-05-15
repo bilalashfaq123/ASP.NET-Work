@@ -36,6 +36,11 @@ namespace K163636_Q1.Controllers
             return Courses.FirstOrDefault(item => item.CourseCode == id);
         }
 
+        public IEnumerable<Course> GetCorusesLessThanThreshold(int students)
+        {
+            return Courses.Where(item => item.NumberOfStudentsEnrolled < students);
+        }
+
 
 
     }
